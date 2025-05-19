@@ -54,15 +54,15 @@ public class SILab2Test {
 
         // TC3: F T F
         double result3 = SILab2.checkCart(List.of(new Item("Item3", 1, 100, 0.2)), "1234567812345678");
-        assertEquals(-30 + 100 * 0.8 * 1, result3); // Apply both
+        assertEquals(-30 + 100 * 0.8 * 1, result3);
 
         // TC4: F T T
         double result4 = SILab2.checkCart(List.of(new Item("Item4", 15, 100, 0.2)), "1234567812345678");
-        assertEquals(-30 + 100 * 0.8 * 15, result4); // -30 then +1200
+        assertEquals(-30 + 100 * 0.8 * 15, result4);
 
         // TC5: T F F
         double result5 = SILab2.checkCart(List.of(new Item("Item5", 1, 400, 0.0)), "1234567812345678");
-        assertEquals(400 - 30, result5); // -30 then +400
+        assertEquals(400 - 30, result5);
 
         // TC6: T F T
         double result6 = SILab2.checkCart(List.of(new Item("Item6", 15, 400, 0.0)), "1234567812345678");
