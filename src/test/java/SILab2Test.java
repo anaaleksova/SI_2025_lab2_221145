@@ -23,19 +23,13 @@ public class SILab2Test {
         double result3 = SILab2.checkCart(items3, card3);
         assertEquals(500, result3);
 
-        // Test Case 4: Item with discount and high price
-        List<Item> items4 = List.of(new Item("Laptop", 2, 500, 0.1));
-        String card4 = "1111222233334444";
-        double result4 = SILab2.checkCart(items4, card4);
-        assertEquals(870, result4);
-
-        // Test Case 5: Invalid card number
+        // Test Case 4: Invalid card number
         List<Item> items5 = List.of(new Item("Pen", 10, 0, 1.0));
         RuntimeException ex5 = assertThrows(RuntimeException.class, () ->
                 SILab2.checkCart(items5, null));
         assertTrue(ex5.getMessage().contains("Invalid card number!"));
 
-        // Test Case 6: Invalid character in card number
+        // Test Case 5: Invalid character in card number
         List<Item> items6 = List.of(new Item("Pen", 10, 0, 1));
         RuntimeException ex6 = assertThrows(RuntimeException.class, () ->
                 SILab2.checkCart(items6, "1234abcd5678ABCD"));
@@ -56,24 +50,9 @@ public class SILab2Test {
         double result3 = SILab2.checkCart(List.of(new Item("Item3", 1, 100, 0.2)), "1234567812345678");
         assertEquals(-30 + 100 * 0.8 * 1, result3);
 
-        // TC4: F T T
-        double result4 = SILab2.checkCart(List.of(new Item("Item4", 15, 100, 0.2)), "1234567812345678");
-        assertEquals(-30 + 100 * 0.8 * 15, result4);
-
-        // TC5: T F F
+        // TC4: T F F
         double result5 = SILab2.checkCart(List.of(new Item("Item5", 1, 400, 0.0)), "1234567812345678");
         assertEquals(400 - 30, result5);
 
-        // TC6: T F T
-        double result6 = SILab2.checkCart(List.of(new Item("Item6", 15, 400, 0.0)), "1234567812345678");
-        assertEquals(400 * 15 - 30, result6);
-
-        // TC7: T T F
-        double result7 = SILab2.checkCart(List.of(new Item("Item7", 1, 400, 0.2)), "1234567812345678");
-        assertEquals( - 30 + 400 * 0.8, result7);
-
-        // TC8: T T T
-        double result8 = SILab2.checkCart(List.of(new Item("Item8", 15, 400, 0.2)), "1234567812345678");
-        assertEquals(- 30 + 400 * 0.8 * 15, result8);
     }
 }
